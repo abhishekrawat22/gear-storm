@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gear Storm - A top-down factory defense game. Pilot your mech, fight rogue machines, collect gears, and build turrets to survive! Made for Gamedev.js Jam 2026.">
+    <title>Gear Storm — Gamedev.js Jam 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Title Screen Overlay -->
+    <div id="titleScreen" class="overlay">
+        <div class="title-content">
+            <div class="gear-icon" id="gearIcon1">⚙</div>
+            <div class="gear-icon gear-icon-small" id="gearIcon2">⚙</div>
+            <h1>GEAR STORM</h1>
+            <p class="subtitle">A Factory Defense Game</p>
+            <div class="instructions-box">
+                <p><strong>WASD</strong> — Move &nbsp; <strong>Mouse</strong> — Aim & Shoot</p>
+                <p><strong>T</strong> — Place Turret (costs gears) &nbsp; <strong>U</strong> — Upgrade Mech</p>
+                <p><strong>E</strong> — Place Repair Station &nbsp; <strong>ESC</strong> — Cancel Placement</p>
+            </div>
+            <button id="startBtn" class="glow-btn">START MISSION</button>
+            <p class="jam-credit">Made for Gamedev.js Jam 2026 • Theme: Machines</p>
+        </div>
+    </div>
+
+    <!-- HUD -->
+    <div id="hud" class="hidden">
+        <div id="hudLeft">
+            <div class="hud-item" id="healthBar">
+                <div class="hud-label">HULL</div>
+                <div class="bar-bg"><div class="bar-fill" id="healthFill"></div></div>
+            </div>
+            <div class="hud-item">
+                <div class="hud-label">⚙ <span id="gearCount">0</span></div>
+            </div>
+        </div>
+        <div id="hudCenter">
+            <div id="waveInfo">WAVE <span id="waveNum">1</span></div>
+            <div id="waveStatus"></div>
+        </div>
+        <div id="hudRight">
+            <div class="hud-item">
+                <div class="hud-label">SCORE: <span id="scoreDisplay">0</span></div>
+            </div>
+            <div class="hud-item">
+                <div class="hud-label">TURRETS: <span id="turretCount">0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Build Menu -->
+    <div id="buildMenu" class="hidden">
+        <div class="build-hint">T: Turret (10⚙) | E: Repair Pad (15⚙) | U: Upgrade Mech (20⚙)</div>
+    </div>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverScreen" class="overlay hidden">
+        <div class="title-content">
+            <h1>SYSTEM FAILURE</h1>
+            <div class="score-summary">
+                <p>Waves Survived: <span id="finalWave">0</span></p>
+                <p>Score: <span id="finalScore">0</span></p>
+                <p>Enemies Destroyed: <span id="finalKills">0</span></p>
+                <p>Turrets Built: <span id="finalTurrets">0</span></p>
+            </div>
+            <button id="restartBtn" class="glow-btn">REBOOT SYSTEM</button>
+        </div>
+    </div>
+
+    <!-- Wave Announcement -->
+    <div id="waveAnnounce" class="hidden">
+        <div id="waveAnnounceText"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
